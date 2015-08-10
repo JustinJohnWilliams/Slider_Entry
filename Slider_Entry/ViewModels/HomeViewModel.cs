@@ -45,6 +45,23 @@ namespace Slider_Entry.ViewModels
             }
         }
 
+        private decimal _someAccurateValue;
+        public decimal SomeAccurateValue
+        {
+            get
+            {
+                return _someAccurateValue;
+            }
+            set
+            {
+                if (_someAccurateValue != value)
+                {
+                    _someAccurateValue = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
         private void RaisePropertyChanged([CallerMemberName] string propName = "")

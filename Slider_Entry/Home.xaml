@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:localRes="clr-namespace:Slider_Entry.ValueConverters;assembly=Slider_Entry"
-             x:Class="Slider_Entry.Home">
+             x:Class="Slider_Entry.Home"
+             xmlns:custom="clr-namespace:Slider_Entry.CustomControls;assembly=Slider_Entry">
 
   <ContentPage.Resources>
     <ResourceDictionary>
@@ -17,6 +18,8 @@
         <RowDefinition Height="Auto" />
         <RowDefinition Height="*" />
         <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="*" />
@@ -27,6 +30,9 @@
 
       <Slider Minimum="-15000" Maximum="15000" Value="{Binding SomeNegativeValue, Mode=TwoWay}" Grid.Row="2" Grid.Column="0"/>
       <Entry Text="{Binding SomeNegativeValue, Mode=TwoWay, Converter={StaticResource decimalToCurrencyStringConverter}}" Keyboard="Numeric" Grid.Row="3" Grid.Column="1" />
+
+      <custom:AccurateSlider Minimum="-15000" Maximum="15000" AccurateValue="{Binding SomeAccurateValue, Mode=TwoWay}" Grid.Row="4" Grid.Column="0"/>
+      <Entry Text="{Binding SomeAccurateValue, Mode=TwoWay, Converter={StaticResource decimalToCurrencyStringConverter}}" Keyboard="Numeric" Grid.Row="5" Grid.Column="1" />
     </Grid>
   </StackLayout>
   
